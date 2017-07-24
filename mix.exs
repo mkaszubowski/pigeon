@@ -31,7 +31,7 @@ defmodule Pigeon.Mixfile do
   defp deps do
     [{:poison, "~> 2.0 or ~> 3.0"},
     {:httpoison, "~> 0.7"},
-    {:kadabra, github: "mkaszubowski/kadabra", branch: "test"},
+    {:kadabra, "~> 0.2.0", optional: true},
     {:poolboy, "~> 1.5"},
     {:dogma, "~> 0.1", only: :dev},
     {:earmark, "~> 1.0", only: :dev},
