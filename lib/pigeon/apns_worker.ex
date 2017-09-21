@@ -9,11 +9,13 @@ defmodule Pigeon.APNSWorker do
 
   defp apns_production_api_uri, do: "api.push.apple.com"
   defp apns_development_api_uri, do: "api.development.push.apple.com"
+  defp apns_sandbox_api_uri, do: "api.sandbox.push.apple.com"
 
   def push_uri(mode) do
     case mode do
       :dev -> apns_development_api_uri()
       :prod -> apns_production_api_uri()
+      :debug -> apns_sandbox_api_uri()
     end
   end
 
@@ -216,7 +218,7 @@ defmodule Pigeon.APNSWorker do
       :missing_provider_token ->
         """
         No provider certificate was used to connect to APNs and Authorization header was missing
-        or no provider token was specified." 
+        or no provider token was specified."
         """
 
       # 404
